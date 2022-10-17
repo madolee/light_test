@@ -1,0 +1,134 @@
+
+import android.content.Context;
+import android.hardware.camera2.CameraManager;
+import android.media.AudioManager;
+import android.os.Build;
+import android.os.Bundle;
+import android.view.View;
+
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.sql.Array;
+
+public class MainActivity extends AppCompatActivity {
+
+    private CameraManager cameraManager;
+    private String cameraID;
+    private AudioManager audio;
+
+// int  arr[33]={13,88,13,22,22,88,88,13,8,88,8,88,13,22,22,88,88,13,8,13,88,8,13,22,22,88,88,13,8,88,13,13,8};
+
+int [] stu=new int{13,88,13,22,22,88,88,13,8,88,8,88,13,22,22,88,88,13,8,13,88,8,13,22,22,88,88,13,8,88,13,13,8}; 
+
+
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
+        audio = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        try {
+            cameraID = cameraManager.getCameraIdList()[0]; // 0 is for back camera
+  //          audio=(AudioManager)getSystemService(Context.AUDIO_SERVICE);
+
+
+
+  //          AudioManager audio = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+   
+   
+    
+    for(int i=0; i<31; i++) { 			
+    System.out.println(i+1+" 번째 근무:"+stu[i]+"점");
+
+            switch(stu[i]){
+
+                case 8:                
+           delay (1000);         
+                    break;
+
+
+ 
+               case 13:
+          delay (1000);       
+                    break;
+
+
+
+ 
+               case 22:
+          delay (1000);       
+                    break;
+
+
+
+
+               case 0:
+           delay (1000);      
+                    break;
+
+
+              }
+        }
+
+#함수정의로 voll  up
+
+   @RequiresApi(api = Build.VERSION_CODES.M)
+    public void TorchONButtonClick(View view){
+    try {
+            audio.setStreamVolume(AudioManager.STREAM_MUSIC,
+                    (int) (audio.getStreamMaxVolume(AudioManager.STREAM_MUSIC) * 0.95),
+                    AudioManager.FLAG_PLAY_SOUND);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+
+
+#함수 정으로  voll  down
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    public void TorchOFFButtonClick(View view){
+        try {
+        audio.setStreamVolume(AudioManager.STREAM_MUSIC,
+                    (int) (audio.getStreamMaxVolume(AudioManager.STREAM_MUSIC) * 0.1),
+                    AudioManager.FLAG_PLAY_SOUND);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    
+    
+    
+ 
+ 
+ 
+ ----------------
+    
+    
+    
+    public class Array_1 { 	
+    public static void main(String[] args) { 		//배열을 사용하여 출력 		
+    int scores[]; 		
+    scores=new int[3]; 		scores[0] =100; 		scores[1]=80; 		scores[2]=70; 	 		 		            //for반복문을 사용해서 출력 	
+    for(int i=0; i<3; i++) { 			
+    System.out.println(i+1+" 번째 학생의 점수:"+scores[i]+"점"); 		} 		 		 	}
+
+     int [] score = new int[5]; //5개의 int 값을 저장할 수 있는 배열을 생성한다.
+
+
+ =
+
+--------------------
