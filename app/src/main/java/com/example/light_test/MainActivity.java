@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
     public static void  timer(int a){
         try {
 
-            Thread.sleep(3600L *a);
+            Thread.sleep(3600000L *a);
 
         } catch (Exception e) {
             e.printStackTrace();
