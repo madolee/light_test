@@ -40,10 +40,16 @@ public class MainActivity extends AppCompatActivity {
         }
         textv = findViewById(R.id.t1);
 
-        Integer[] str_arrary = {88,88,8,13,88,13,8,8,22,22,88,88,8,13};
+        Integer[] str_arrary = {13,88,13,8,8,22,22,88,88,8,13,13,88,88,13,22,22,88,88,13,13,88,8,8,88,22,22,88,88,8,13,13,88,8,13,8,88,8,13,22,22,88};
         ArrayList<Integer> ARR = new ArrayList<>();
 
-        timer(6);
+
+        Toron();
+        timer((int)3.5);
+        Toroff();
+        audz();
+
+
         for (int i = 0; i < str_arrary.length; i++) {
 
             int sum = i + 15;
@@ -60,6 +66,17 @@ public class MainActivity extends AppCompatActivity {
             switch (str_arrary[i]){
 
                 case 88:
+                    if (str_arrary[i - 1] == 22){
+
+                        timer(15);
+                        auda();
+                        timer(3);
+                        Toron();
+                        timer(6);
+                        audz();
+                        Toroff();
+                        break;
+                }
                     timer(8);
                     auda();
 
@@ -67,32 +84,53 @@ public class MainActivity extends AppCompatActivity {
                     timer(  2 );
                     audz();
 
-                    timer(8);
+                    timer(7);
                     Toron();
-                    timer(6);
+                    timer(7);
                     Toroff();
                     break;
 
                 case 22:
-                    timer(18);
+                    if  (str_arrary[i - 1] == 22){
+                        timer(15);
+                        auda();
+                        timer(3);
+                        Toron();
+                        timer(6);
+                        audz();
+                        Toroff();
+                        break;
+
+                }
+                    timer(8);
+                    auda();
+                    timer(  2 );
+                    audz();
+
+
+
+                    timer(7);
                     Toron();
-                    timer(2);
+
+                    timer(7 );
                     Toroff();
-                    timer(4);
                     break;
 
 
                 case 8:
                     timer((int) 5.75);
                     //alram
-                    timer((int) 12.25);
+                    auda();
+                    timer((int) 0.25);
+                    audz();
+                    timer((int) 12);
                     auda();
                     // music
                     Toron();
                     timer(4);
                     audz();
                     timer(2);
-
+                    Toroff();
 
                     break;
 
@@ -138,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
     public static void  timer(int a){
         try {
 
-            Thread.sleep(3600000L *a);
+            Thread.sleep(3600000 *a);
 
         } catch (Exception e) {
             e.printStackTrace();
