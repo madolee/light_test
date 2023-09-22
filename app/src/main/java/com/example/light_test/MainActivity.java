@@ -7,6 +7,7 @@ import android.hardware.camera2.CameraManager;
 import android.media.AudioManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         Toron();
-        timer((int)3.5);
+        timer((float)0.18);
         Toroff();
         audz();
 
@@ -58,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
             textv.setText("Today is " + sum + "/n" + "Work code is" + arr);
 
             try {
-                Thread.sleep(10_000);
+                Thread.sleep(1_000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -118,10 +119,10 @@ public class MainActivity extends AppCompatActivity {
 
 
                 case 8:
-                    timer((int) 5.75);
+                    timer((float) 5.75);
                     //alram
                     auda();
-                    timer((int) 0.25);
+                    timer((float) 0.25);
                     audz();
                     timer((int) 12);
                     auda();
@@ -138,9 +139,9 @@ public class MainActivity extends AppCompatActivity {
                 case 13:
                     timer(8);
                     auda();
-                    timer((int) 2.4);
+                    timer((float) 2.4);
                     audz();
-                    timer((int) 12.6);
+                    timer((float) 12.6);
                     auda();
                     Toron();
                     timer(1);
@@ -157,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
+// Log.d( tag, "test", msg: "test:if 진행 " );
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     public static void     audz() {
@@ -173,10 +174,10 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    public static void  timer(int a){
+    public static void  timer(float a){
         try {
 
-            Thread.sleep(3600000 *a);
+            Thread.sleep((long) (3600000 *a));
 
         } catch (Exception e) {
             e.printStackTrace();
